@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>hexo博客指南 | lyyourc</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+<link rel="stylesheet" href="/css/app.css">
+
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2020/04/04/hexo%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/">hexo博客指南</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 04 2020</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li><p>安装git</p>
+</li>
+<li><p>安装Node.js</p>
+</li>
+<li><p>安装hexo</p>
+<ol>
+<li><p>在合适的地方创个文件夹（我的地址D:hexo）</p>
+</li>
+<li><p>控制台进入该文件夹后，输入</p>
+<p><code>npm install hexo -g</code></p>
+</li>
+<li><p>初始化hexo文件夹</p>
+<p><code>hexo init</code></p>
+</li>
+<li><p>安装所需要的组件</p>
+<p><code>npm install</code></p>
+</li>
+</ol>
+</li>
+<li><p>修改hexo部署配置</p>
+<ol>
+<li>在hexo根目录下修改_config.yml文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:wwr1897&#x2F;wwr1897.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>安装hexo-deployer-git插件</p>
+<p><code>npm install hexo-deployer-git --save</code></p>
+</li>
+</ol>
+</li>
+<li><p>修改主题</p>
+<ol>
+<li><p>在网页<code>https://hexo.io/themes/</code>寻找主题</p>
+</li>
+<li><p>控制台进入hexo文件夹 输入</p>
+<p><code>git clone XXXXXXX themes/XXXXX</code></p>
+</li>
+<li><p>修改<code>_config.yml</code>中的<code>theme: xxx</code>改为<code>theme: xxxx，然后重新执行</code>hexo g`来重新生成。  </p>
+</li>
+</ol>
+</li>
+</ol>
+<p>如果出现一些莫名其妙的问题，可以先执行<code>hexo clean</code>来清理一下public的内容，然后再来重新生成和发布。</p>
+<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><ol>
+<li><p>控制台进入hexo文件夹 输入</p>
+<p><code>hexo new &#39;xxxxx&#39;</code></p>
+</li>
+<li><p>文件系统<code>hexo/source/_posts</code>内就会生成一个md文件，编辑此文件即可</p>
+</li>
+<li><p>生成博客文件 </p>
+<p><code>hexo g</code></p>
+</li>
+<li><p>本地预览</p>
+<p><code>hexo s</code></p>
+</li>
+<li><p>部署至github</p>
+<p><code>hexo d</code></p>
+</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ol>
+<li><p>安装hexo-asset-image</p>
+<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
+</li>
+<li><p>修改<code>_config.yml</code>文件，<code>post_asset_folder:true</code></p>
+</li>
+<li><p>修改完成后，每次new一个文章都会在同目录产生一个同名文件夹用来存放图片，输入<code>![](xxx.jpg)</code>即可访问该文件夹内的图片。</p>
+</li>
+<li><p>但是，在本地编辑markdown时，使用该路径会访问该文件夹的上一级，所以推荐使用typora，可以在预览时修改图片根目录。</p>
+</li>
+</ol>
+<h3 id="typora-markdown编辑器"><a href="#typora-markdown编辑器" class="headerlink" title="typora markdown编辑器"></a>typora markdown编辑器</h3><p>之前用的vscode，干别的可以，写md文件太麻烦，于是转用typora。</p>
+<ul>
+<li><p>图片设置</p>
+<ul>
+<li><p>直接插入图片的设置：格式-图像-图像全局设置-插入图片时复制到指定路径</p>
+<p><img src="/image-20200404191046288.png" alt="image-20200404191046288"></p>
+</li>
+<li><p>配合hexo-asset-image预览的设置：格式-图像-设置根目录  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">http://blog.haoji.me/build-blog-website-by-hexo-github.html</a></p>
+<p><a href="https://www.jianshu.com/p/1bcad7700c46" target="_blank" rel="noopener">https://www.jianshu.com/p/1bcad7700c46</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://7xrcp8.com1.z0.glb.clouddn.com/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> lyyourc </p>
+      <p class="subtitle"> You Are The JavaScript In My HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="准备工作"><a href=""
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2020/04/04/hexo%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>
